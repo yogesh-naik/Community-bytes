@@ -5,7 +5,7 @@ A pseudo recipe website meant to highlight our Mongoose, MongoDB, JavaScript, CS
 The deployed website can be visited at: https://community-bytes.herokuapp.com/
 
 ## Found a bug? Report it!
-If you find bugs, can you reach out to Robert directly at:  Yogesh at: nike.yogesh@gmail.com,Robertmsato@gmail.com, James at: jamesb5778@gmail.com,
+If you find bugs, can you reach out to Yogesh at: nike.yogesh@gmail.com, Robert directly at:Robertmsato@gmail.com, James at: jamesb5778@gmail.com,
 
 ## Planned Features
 TBD
