@@ -14,8 +14,8 @@ TBD
 This website was a collaboration between Robert, Yogesh, and James as part of our coding bootcamp project.
 
 ## Instructions
--For local running
-# Create .env file and add following parameters -
-GOOGLE_CLIENT_ID=835309595862-u7l86cmtgsdgnjk83uqunh0bphdil5p8.apps.googleusercontent.com
-GOOGLE_SECRET=fYfnGQgrG_FYY_e1CMgNSC_K
-GOOGLE_CALLBACK=http://localhost:4000/oauth2callback
+#For local running
+-Create .env file and add following parameters -
+-GOOGLE_CLIENT_ID=835309595862-u7l86cmtgsdgnjk83uqunh0bphdil5p8.apps.googleusercontent.com
+-GOOGLE_SECRET=fYfnGQgrG_FYY_e1CMgNSC_K
+-GOOGLE_CALLBACK=http://localhost:4000/oauth2callback
