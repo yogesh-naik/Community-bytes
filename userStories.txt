@@ -1,0 +1,5 @@
+(1) aau, I want to create a recipe to share my recipes.
+(2) aau, I want to update the recipe steps in case I make mistake.
+(3) aau, I want to review a recipe for users to see and share comments.
+(4) aau, I want to delete a recipe in case I don't like how it turned out or I want to improve.
+(5) aau, I want to log in with google.

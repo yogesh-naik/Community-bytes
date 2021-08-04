@@ -1,0 +1,280 @@
+body {
+    color: white;
+    margin: 0;
+    background-color: rgb(169, 106, 200);
+}
+
+#nav-container {
+    background-color: rgb(115, 74, 136);
+    margin: 0;
+    padding: 10px 15px 10px 15px;
+}
+
+#nav-bytes {
+    display: inline;
+    margin-right: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#slogan {
+    display: inline;
+    font-style: italic;
+    font-family: 'MonteCarlo', cursive;
+    font-size: clamp(1.5em, 2vw, 1.5em);
+}
+
+#nav-links-container {
+    float: right;
+    height: 44px;
+    line-height: 44px;
+}
+
+.nav-links {
+    display: inline;
+    padding-right: 15px;
+    line-height: 100%;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    font-size: clamp(13px, 1.3vw, 1em);
+}
+
+.nav-links:hover {
+    text-decoration: underline;
+}
+
+#com-bytes-link {
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+    #nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        height: 80px;
+    }
+
+    #nav-links-container {
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 600x) {
+
+}
+/*  Nav bar css ends  */
+
+#create-recipe-header {
+    text-align: center;
+    font-size: clamp(30px, 4vw, 40px);
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+#recipe-container {
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+}
+#recipe-info-container {
+    display: flex;
+    justify-content: center;
+    /* grid-template-columns: 50% 50%;
+    grid-template-areas: "ingredients steps"; */
+
+}
+
+.ingredient-container {
+    margin: 1em 3.5em 3em 3.5em;
+}
+
+.steps-container {
+    margin: 1em 3em 3em 3em;
+}
+
+h4 {
+    font-size:1.5em;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    justify-self: center;
+}
+
+.recipe-title {
+    text-align: center;
+}
+
+#recipe-info-ingred {
+    margin-right: 5em;
+    /* grid-area: ingredients;
+    align-content: center; */
+}
+
+#recipe-info-steps {
+    margin-left: 5em;
+    /* grid-area: steps;
+    align-content: center; */
+}
+
+.form {
+    display: flex;
+    align-items: flex-end;
+}
+
+.name-label {
+    font-size: 1.5em;
+    font-family: 'Nunito', sans-serif;
+}
+
+#name-textarea {
+    width: 250px;
+}
+
+hr {
+    border: 1.5px solid rgb(115, 74, 136);
+    background-color: rgb(115, 74, 136);
+    margin: 1em 3em;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "form display";
+    justify-content: center;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+#new-form {
+    text-align: center;
+    margin-bottom: 2em;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+.add-form {
+    grid-area: form;
+    justify-self: center;
+    text-align: center;
+}
+
+.list-element {
+    grid-area: display;
+    justify-self: center;
+}
+
+.list-items {
+    font-size: 1.25em;
+    font-family: 'Nunito', sans-serif;
+}
+
+#submit-changes {
+    text-decoration: none;
+    color: black;
+    height: 65px;
+    border-radius: 10%;
+    text-align: center;
+    line-height: 65px;
+    background: white;
+    display: inline-block;
+    font-size: 1.2em;
+    border: 0;
+    box-shadow: 3px 3px 5px black;
+    width:10%;
+    margin: 2.5em 45% 0 45%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+#submit-changes:hover {
+    background: rgb(204, 204, 204);
+}
+
+button {
+    text-decoration: none;
+    color: black;
+    border-radius: 15%;
+    text-align: center;
+    background: white;
+    display: inline-block;
+    font-size: 1em;
+    border: 0;
+    box-shadow: 3px 3px 5px black;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+button:hover {
+    background: rgb(204, 204, 204);
+}
+
+li {
+    animation-duration: 0.75s;
+    animation-name: appear;
+    margin-bottom: .85em;
+    line-height: 1.33em;
+}
+
+@media only screen and (max-width: 940px) {
+    .ingredient-container,
+    .steps-container {
+        margin: 1em 1.5em 1em 1.5em
+    }
+    h4 {
+        margin-bottom: 1em;
+    }
+    
+    .list-items {
+        font-size: clamp(15px, 1.1em, 40px);
+        margin-top: 0.85em;
+        margin-bottom: 0.85em;
+    }
+
+    li {
+        margin-bottom: .5em;
+    }
+
+    #submit-changes {
+        font-size: 0.9em;
+        line-height: 50px;
+        height: 50px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    
+}
+
+@keyframes fallsdown {
+    from {
+        opacity: 0;
+        position: relative;
+        bottom: 30px;
+    }
+
+    to {
+        opacity: 1;
+        position: relative;
+        bottom: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

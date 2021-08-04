@@ -1,0 +1,245 @@
+body {
+    color: white;
+    margin: 0;
+    background-color: rgb(169, 106, 200);
+}
+
+#nav-container {
+    background-color: rgb(115, 74, 136);
+    margin: 0;
+    padding: 10px 15px 10px 15px;
+}
+
+#nav-bytes {
+    display: inline;
+    margin-right: 5px;
+    font-family: 'Nunito', sans-serif;
+}
+
+#slogan {
+    display: inline;
+    font-style: italic;
+    font-family: 'MonteCarlo', cursive;
+    font-size: clamp(1.5em, 2vw, 1.5em);
+}
+
+#nav-links-container {
+    float: right;
+    height: 44px;
+    line-height: 44px;
+}
+
+.nav-links {
+    display: inline;
+    padding-right: 15px;
+    line-height: 100%;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    font-size: clamp(13px, 1.3vw, 1em);
+}
+
+.nav-links:hover {
+    text-decoration: underline;
+}
+
+#com-bytes-link {
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+    #nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        height: 80px;
+    }
+
+    #nav-links-container {
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 600x) {
+
+}
+/*  Nav bar css ends  */
+
+#title-name, #title-update-name{
+    text-align: center;
+    font-size: clamp(30px, 4vw, 40px);
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+    margin-top: 1em;
+}
+
+#recipe-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "ingredients steps";
+    justify-content: center;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+    margin-bottom: 1.5em;
+}
+
+.recipe-info-ingred {
+    margin-right: 3em;
+    grid-area: ingredients;
+    justify-self: center;
+    text-align: center;
+}
+
+.recipe-info-steps {
+    margin-left: 3em;
+    grid-area: steps;
+    justify-self: center;
+    text-align: center;
+    margin-right: 2.5em;
+}
+
+#update-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "form newsteps";
+    justify-content: center;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+    margin-bottom: 2em;
+}
+
+.cls-addsteps {
+    grid-area: form;
+    justify-self: center;
+    text-align: center;
+}
+
+.cls-liststeps {
+    grid-area: newsteps;
+    justify-self: center;
+    text-align: center;
+}
+
+#submit-btn{
+    text-decoration: none;
+    color: black;
+    height: 65px;
+    border-radius: 15%;
+    text-align: center;
+    line-height: 65px;
+    background: white;
+    display: inline-block;
+    font-size: 1.2em;
+    border: 0;
+    box-shadow: 3px 3px 5px black;
+    width: 10%;
+    margin: 1.5em 45% 0 45%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+#submit-btn:hover {
+    background: rgb(207, 207, 207);
+}
+
+h2 {
+    font-size:1.5em;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    justify-self: center;
+}
+
+h4 {
+    font-size:1.5em;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    justify-self: center;
+}
+
+ul,
+ol {
+    font-size: 1.25em;
+    font-family: 'Nunito', sans-serif;
+    text-align: left;
+}
+
+hr {
+    border: 1.5px solid rgb(115, 74, 136);
+    background-color: rgb(115, 74, 136);
+    margin: 1em 3em;
+    animation-duration: 1.5s;
+    animation-name: fallsdown;
+    z-index: 1;
+}
+
+.steps-title {
+    font-size:1.5em;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: 2px 2px 5px black;
+    justify-self: center;
+}
+
+#step-num {
+    font-size: 1.5em;
+    font-family: 'Nunito', sans-serif;
+}
+
+button {
+    text-decoration: none;
+    color: black;
+    border-radius: 13%;
+    text-align: center;
+    background: white;
+    display: inline-block;
+    font-size: 1em;
+    border: 0;
+    box-shadow: 3px 3px 5px black;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+}
+
+button:hover {
+    background: rgb(204, 204, 204);
+}
+
+#add-li {
+    animation-duration: 0.75s;
+    animation-name: appear;
+}
+
+li {
+    margin-bottom: .85em;
+    line-height: 1.33em;
+}
+
+@keyframes fallsdown {
+    from {
+        opacity: 0;
+        position: relative;
+        bottom: 30px;
+    }
+
+    to {
+        opacity: 1;
+        position: relative;
+        bottom: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

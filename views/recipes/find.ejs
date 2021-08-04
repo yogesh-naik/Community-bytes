@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Recipe</title>
+  <link rel="stylesheet" href="/css/find.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Nunito:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <%- include('../partials/navbar') %>
+    <h2 id="Find-Header">Find Tonight's Dinner:</h2>
+    <form id="new-form" action="/recipes/display" method="GET">
+      <span id="form-text">
+        <label id="name-label">Enter Recipe Name (Title):</label>
+        <input type="text" name="recipeName" id="name-textarea" placeholder="e.g. Homemade Pizza">
+        <input type="submit" value="Find Recipe" id="find-recipe">
+      </span>
+    </form>
+    <section>
+      <% if (recipe.length){ %>
+        <% recipe.forEach(function(m) { %>
+          <hr>
+          <div id="recipe container">
+            <h3 class="recipe-title">
+              <%= m.recipeName %>
+            </h3>
+            <div id="recipe-info-container">
+              <div class="recipe-info-box recipe-info-ingred">
+                <h4>Ingredients:</h4>
+                <ul>
+                  <% m.ingredients.forEach(function(ingred) { %>
+                    <li>
+                      <%= ingred %>
+                    </li>
+                    <% }); %>
+                </ul>
+              </div>
+              <div class="delete-button">
+                <form action="/recipes/<%= m._id %>?_method=DELETE" method="POST" class="form">
+                  <button type="submit">Delete</button>
+                </form>
+              </div>
+              <div class="recipe-info-box recipe-info-steps">
+                <h4>Steps:</h4>
+                <ol>
+                  <% m.steps.forEach(function(step) { %>
+                    <li>
+                      <%= step %>
+                    </li>
+                    <% }); %>
+                </ol>
+              </div>
+              <div class="update-button">
+                <form action="/recipes/<%= m._id %>" method="GET" class="form">
+                  <button type="submit">Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+            <br>
+            <h2 class="recipe-title">Reviews for: <%= recipe[0].recipeName %>
+            </h2>
+            <div id="review-container">
+              <form id="add-review-form" method="POST" action="/recipes/display?recipeName=<%= recipe[0].recipeName %>">
+                <label class="add-review-label">Add Review:</label>
+                <textarea name="content"></textarea>
+                <label class="rating-label">Rating:</label>
+                <select name="rating">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <input type="submit" value="Add Review" id="submit-review" />
+              </form>
+              <table id="review-box">
+                <thead>
+                  <tr>
+                    <th>Ratings</th>
+                    <th>Content</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <% if (recipe[0].reviews.length){ %>
+                      <% recipe[0].reviews.forEach(function(m) { %>
+                        <td>
+                          <%= m.rating %>
+                        </td>
+                        <td class="review-content">
+                          <%= m.content%>
+                        </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+              </div>
+    </section>
+    <section>
+      
+      <% } else { %>
+        <h5>No Reviews Yet</h5>
+        <% }%>
+
+    </section>
+    <% } else { %>
+      <h5 id="no-recipe">No Recipes Found</h5>
+      <% }%>
+</body>
+
+</html>

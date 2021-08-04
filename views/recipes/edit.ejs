@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Recipe</title>
+    <link rel="stylesheet" href="/css/update.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Nunito:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <h1 id="title-name">Recipe Name: <%= recipe.recipeName %>
+        </h1>
+        <section id="recipe-container">
+            <div class="recipe-info-box recipe-info-ingred">
+                <h4>Ingredients:</h4>
+                <ul>
+                  <% recipe.ingredients.forEach(function(ingred) { %>
+                    <li>
+                      <%= ingred %>
+                    </li>
+                    <% }); %>
+                </ul>
+              </div>
+              <div class="recipe-info-box recipe-info-steps">
+                <h4>Steps:</h4>
+                <ol>
+                  <% recipe.steps.forEach(function(step) { %>
+                    <li>
+                      <%= step %>
+                    </li>
+                    <% }); %>
+                </ol>
+              </div>
+        </section>
+        <hr>
+
+        <h2 id="title-update-name">Update Recipe Steps:</h2>
+        <section id="update-container">
+            <div class="cls-addsteps">
+              <h3 class="steps-title">
+                Add the Steps:
+              </h3>
+                <form id="new-form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+                    <label id="step-num">Step 1:</label>
+                    <input type="text" name="stepsInput" id="stepsInput" placeholder="e.g. Preheat Oven">
+                    <button onclick="addStep()" type="button">Add Step</button>
+                </form>
+            </div>
+            <div class="cls-liststeps">
+                <h2 id="recipeStep">Recipe Steps: </h2>
+                <ul id="lists"></ul>
+            </div>
+        </section>
+        <hr>
+        <input type="submit" value="Update" form="new-form" id="submit-btn">
+
+
+</body>
+<script defer>
+    let steps = [];
+    let num = 1;
+    let stepsEl = document.getElementById("stepsInput");
+    let formEl = document.getElementById("new-form");
+    function addStep() {
+        console.log(stepsEl);
+        steps.push(stepsEl.value);
+        //document.getElementById("recipeStep").append(` ${stepsEl.value}`);
+
+        const liEl = document.createElement('li');
+        liEl.setAttribute("id", "add-li");
+        liEl.innerHTML =`${stepsEl.value}`;
+        document.getElementById("lists").appendChild(liEl);
+
+        // return steps;
+        // Add the data as hidden input fields
+        let inputEl = document.createElement("input");
+        inputEl.setAttribute("type", "hidden");
+        inputEl.setAttribute("name", `steps`);
+        inputEl.setAttribute("value", stepsEl.value);
+        formEl.append(inputEl);
+        stepsEl.value = "";
+        num++;
+        document.getElementById("step-num").innerHTML = `Step ${num}:`;
+    };
+</script>
+
+</html>

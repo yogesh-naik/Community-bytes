@@ -1,0 +1,16 @@
+<Div id="nav-container">
+    <span id="nav-welcome">
+        <a href="/" id="com-bytes-link"><h3 id="nav-bytes">Community Bytes</h3></a>
+        <p id="slogan">For the culinary community that loves the byte</p>
+    </span>
+    <span id="nav-links-container">
+        <a class="nav-links" href="/recipes/new">Create a Recipe</a>
+        <a class="nav-links" href="/recipes/show">Show All Recipes</a>
+        <a class="nav-links" href="/recipes/find">Search Recipes</a>
+        <% if (user) { %>
+            <a class="nav-links" href="/logout">Log Out</a>
+            <% } else { %>
+                <a class="nav-links" href="/auth/google">Login with Google</a>
+                <% } %>
+    </span>
+</Div>

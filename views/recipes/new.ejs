@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Recipe</title>
+    <link rel="stylesheet" href="/css/create.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&family=Nunito:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <h2 id="create-recipe-header">Create New Recipe</h2>
+        <form id="new-form" action="/recipes" method="POST" name="form2">
+            <label class="name-label">Recipe Name:</label>
+            <input type="text" name="recipeName" id="name-textarea" placeholder="e.g. Taco"> 
+        </form>
+        <hr>
+        <section class="ingredient-container">
+            <div class="add-form">
+                <h4>Add Ingredients:</h4>
+                <label class="name-label">Ingredient Name:</label>
+                <input type="text" name="ingredientsInput" id="ingredientsInput" form="new-form" placeholder="e.g. 1 Garlic Clove">
+                <button onclick="addIngred()" type="button">Add</button>
+            </div>
+            <div class="list-element">
+                <h4 id="oneIngredient">Ingredients Added: </h4>
+                <ul class="list-items" id="ingredient-list">
+
+                </ul>
+            </div>
+        </section>
+        <hr>
+        <section class="steps-container">
+            <div class="add-form">
+                <h4>Add Steps:</h4>
+                <label id="step-num" class="name-label">Step 1:</label>
+                <input type="text" name="stepsInput" id="stepsInput" form="new-form" placeholder="e.g. Preheat Oven">
+            <button onclick="addStep()" type="button">Add Step</button>
+            </div>
+            <div class="list-element">
+                <h4 id="recipeStep">Recipe Steps: </h4>
+                <ol class="list-items" id="step-list">
+
+                </ol>
+            </div>
+        </section>
+        <hr>
+        <input type="submit" value="Add Recipe" form="new-form" id="submit-changes">
+</body>
+<script defer>
+    let ingredients = [];
+    let steps = [];
+    let num = 1;
+    let ingredEl = document.getElementById("ingredientsInput");
+    let stepsEl = document.getElementById("stepsInput");
+    let formEl = document.getElementById("new-form");
+    function addStep() {
+        steps.push(stepsEl.value);
+        // Appends to list of added steps
+        const ul = document.createElement('li');
+        ul.innerHTML =`${stepsEl.value}`;
+        document.getElementById("step-list").appendChild(ul);
+        // return steps;
+        // Add the data as hidden input fields
+        let inputEl = document.createElement("input");
+        inputEl.setAttribute("type", "hidden");
+        inputEl.setAttribute("name", `steps`);
+        inputEl.setAttribute("value", stepsEl.value);
+        formEl.append(inputEl);
+        stepsEl.value = "";
+        num++;
+        document.getElementById("step-num").innerHTML = `Step ${num}:`;
+    };
+    function addIngred() {
+        // Adds to ingredients array
+        ingredients.push(ingredEl.value);
+        // Appends to list of added ingredients
+        const ul = document.createElement('li');
+        ul.innerHTML =`${ingredEl.value}`;
+        document.getElementById("ingredient-list").appendChild(ul);
+        // return ingredients;
+
+        // Add the data as hidden input fields
+        let inputEl = document.createElement("input");
+        inputEl.setAttribute("type", "hidden");
+        inputEl.setAttribute("name", `ingredients`);
+        inputEl.setAttribute("value", ingredEl.value);
+        formEl.append(inputEl);
+        ingredEl.value = "";
+    };
+</script>
+
+</html>
